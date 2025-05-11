@@ -1,0 +1,157 @@
+✅ L1 – Login with valid username and password
+puml
+Copy
+Edit
+@startuml
+start
+:Open login page;
+:Enter valid username;
+:Enter valid password;
+:Click login button;
+if (User profile icon displayed?) then (yes)
+  :Login successful;
+else (no)
+  :Fail - Login unsuccessful;
+endif
+stop
+@enduml
+✅ L2 – Login with locked out user
+puml
+Copy
+Edit
+@startuml
+start
+:Open login page;
+:Enter locked_out_user;
+:Enter password;
+:Click login button;
+if (Error message visible?) then (yes)
+  :Verify locked out error message;
+else (no)
+  :Fail - No error shown;
+endif
+stop
+@enduml
+✅ L3 – Login with problem user (UI/image check)
+puml
+Copy
+Edit
+@startuml
+start
+:Login with problem_user;
+:Observe UI behavior;
+if (Image/UI issues detected?) then (yes)
+  :Log UI issues;
+else (no)
+  :No UI issues;
+endif
+stop
+@enduml
+✅ L4 – Login with performance glitch user
+puml
+Copy
+Edit
+@startuml
+start
+:Login with performance_glitch_user;
+:Measure load time;
+if (Login delay detected?) then (yes)
+  :Log performance glitch;
+else (no)
+  :No performance issue;
+endif
+stop
+@enduml
+✅ L5 – Invalid username, valid password
+puml
+Copy
+Edit
+@startuml
+start
+:Enter invalid username;
+:Enter valid password;
+:Click login;
+if (Error message displayed?) then (yes)
+  :Pass - Error displayed;
+else (no)
+  :Fail - No error;
+endif
+stop
+@enduml
+✅ L6 – Valid username, invalid password
+puml
+Copy
+Edit
+@startuml
+start
+:Enter valid username;
+:Enter invalid password;
+:Click login;
+if (Error message displayed?) then (yes)
+  :Pass - Error displayed;
+else (no)
+  :Fail - No error;
+endif
+stop
+@enduml
+✅ L7 – Empty username and/or password
+puml
+Copy
+Edit
+@startuml
+start
+:Leave fields empty;
+:Click login;
+if (Error message displayed?) then (yes)
+  :Pass - Error displayed;
+else (no)
+  :Fail - No error;
+endif
+stop
+@enduml
+✅ L8 – Verify error messages are correct
+puml
+Copy
+Edit
+@startuml
+start
+:Enter invalid credentials;
+:Click login;
+:Read error message;
+if (Text matches expected?) then (yes)
+  :Pass - Message correct;
+else (no)
+  :Fail - Incorrect message;
+endif
+stop
+@enduml
+✅ L9 – Password input is masked
+puml
+Copy
+Edit
+@startuml
+start
+:Find password field;
+:Get 'type' attribute;
+if (type == password) then (yes)
+  :Pass - Password masked;
+else (no)
+  :Fail - Password not masked;
+endif
+stop
+@enduml
+✅ L10 – Login button disabled or gives error on empty input
+puml
+Copy
+Edit
+@startuml
+start
+:Leave username and password empty;
+:Click login button;
+if (Error message appears?) then (yes)
+  :Pass - Button correctly triggers error;
+else (no)
+  :Fail - No error;
+endif
+stop
+@enduml

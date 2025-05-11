@@ -1,0 +1,40 @@
+@startuml
+actor User
+entity WebApp
+
+User -> WebApp: Open Login Page
+WebApp -> User: Display Login Form
+User -> WebApp: Enter Username ("standard_user")
+User -> WebApp: Enter Password ("secret_sauce")
+User -> WebApp: Click Login Button
+WebApp -> User: Redirect to Product Page
+
+User -> WebApp: Click Sort Dropdown (Lowest Price)
+WebApp -> User: Sort Items (Lowest to Highest)
+
+User -> WebApp: Add First Item to Cart
+User -> WebApp: Add Second Item to Cart
+WebApp -> User: Cart Updates (2 Items Added)
+
+User -> WebApp: Click Cart Icon
+WebApp -> User: Display Cart Page
+User -> WebApp: Verify Items in Cart
+
+User -> WebApp: Click Checkout Button
+WebApp -> User: Redirect to Checkout Page
+
+User -> WebApp: Fill First Name ("John")
+User -> WebApp: Fill Last Name ("Doe")
+User -> WebApp: Fill Postal Code ("12345")
+User -> WebApp: Click Continue
+WebApp -> User: Redirect to Checkout Overview
+
+User -> WebApp: Verify Items in Checkout Overview
+User -> WebApp: Verify Total Price Calculation
+WebApp -> User: Display Total Price (Item Total + Tax)
+
+User -> WebApp: Click Finish Button
+WebApp -> User: Display Confirmation Page
+User -> WebApp: Verify Empty Cart
+
+@enduml
